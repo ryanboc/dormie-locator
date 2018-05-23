@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\MapLoc;
+
 class MapController extends Controller
 {
     /**
@@ -13,9 +15,9 @@ class MapController extends Controller
      */
     public function index()
     {
-		$passports=MapController::all();
+		$maps=MapLoc::all();
         //return view('index',compact('passports'));
-        return view('admin.mapIndex',compact('passports'));
+        return view('admin.mapIndex',compact('maps'));
     }
 
     /**
@@ -37,6 +39,12 @@ class MapController extends Controller
     public function store(Request $request)
     {
         //
+        $maps = new MapLoc();
+        $maps->dormName=$request->get('dorm_name');
+        $maps->long=$request->get('longitude');
+        $maps->lat=$request->get('Latitude');
+        $maps->save();
+        return redirect('admin/map/create')->with('flash_message_success','Dormitory added');
     }
 
     /**
@@ -59,6 +67,8 @@ class MapController extends Controller
     public function edit($id)
     {
         //
+        $maps = MapLoc::find($id);
+        return view('admin.edit_map',compact('maps','id'));
     }
 
     /**
@@ -71,6 +81,12 @@ class MapController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $maps= MapLoc::find($id);
+        $maps->dormName=$request->get('dorm_name');
+        $maps->long=$request->get('longitude');
+        $maps->lat=$request->get('Latitude');
+        $maps->save();
+        return redirect('admin/map');
     }
 
     /**
@@ -82,5 +98,8 @@ class MapController extends Controller
     public function destroy($id)
     {
         //
+        $maps = MapLoc::find($id);
+        $maps->delete();
+        return redirect('admin/map')->with('success','Information has been  deleted');
     }
 }

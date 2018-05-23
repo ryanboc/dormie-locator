@@ -27,28 +27,29 @@
               <h5>Add Dormitory</h5>
             </div>
             <div class="widget-content nopadding">
-              <form class="form-horizontal" method="post" action="{{ url('/admin/map/store') }}"> {{ csrf_field() }}
+              <form class="form-horizontal" method="post" action="{{action('MapController@update', $id)}}"> {{ csrf_field() }}
+              <input name="_method" type="hidden" value="PATCH">
                 <div class="control-group">
                   <label class="control-label">Dorm Name</label>
                   <div class="controls">
-                    <input type="text" name="dorm_name" id="dorm_name" />
+                    <input type="text" name="dorm_name" id="dorm_name" value="{{$maps->dormName}}"/>
                     <span id="chkPwd"></span>
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">longitude</label>
                   <div class="controls">
-                    <input type="text" name="longitude" id="longitude" />
+                    <input type="text" name="longitude" id="longitude" value="{{$maps->long}}" />
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Latitude</label>
                   <div class="controls">
-                    <input type="text" name="Latitude" id="Latitude" />
+                    <input type="text" name="Latitude" id="Latitude" value="{{$maps->lat}}"  />
                   </div>
                 </div>
                 <div class="form-actions">
-                  <input type="submit" value="Create Map" class="btn btn-success">
+                  <input type="submit" value="Update Map" class="btn btn-success">
                 </div>
               </form>
             </div>
