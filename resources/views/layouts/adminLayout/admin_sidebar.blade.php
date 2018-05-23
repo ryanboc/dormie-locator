@@ -1,7 +1,10 @@
 <!--sidebar-menu-->
-<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+<div id="sidebar"><a href="{{url('admin/dashboard') }}" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul>
-    <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+    <li class="active"><a href="{{url('admin/dashboard') }}"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+    <li><a href="{{url('admin/settings') }}"><i class="icon icon-cog"></i> <span>User Settings</span></a> </li>
+    <li><a href="{{url('admin/map') }}"><i class="icon icon-pencil"></i> <span>Map Settings</span></a> </li>
+<!--
     <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a> </li>
     <li> <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a> </li>
     <li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
@@ -17,7 +20,7 @@
     <li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Eelements</span></a></li>
     <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Addons</span> <span class="label label-important">5</span></a>
       <ul>
-        <li><a href="index2.html">Dashboard2</a></li>
+        <li><a href="{{ url('admin/dashboard') }}">Dashboard2</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="calendar.html">Calendar</a></li>
         <li><a href="invoice.html">Invoice</a></li>
@@ -26,7 +29,7 @@
     </li>
     <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Error</span> <span class="label label-important">4</span></a>
       <ul>
-        <li><a href="error403.html">Error 403</a></li>
+        <li><a href="error403.html">Error 401</a></li>
         <li><a href="error404.html">Error 404</a></li>
         <li><a href="error405.html">Error 405</a></li>
         <li><a href="error500.html">Error 500</a></li>
@@ -46,6 +49,7 @@
       <span class="percent">87%</span>
       <div class="stat">604.44 / 4000 MB</div>
     </li>
+-->
   </ul>
 </div>
 <!--sidebar-menu-->
